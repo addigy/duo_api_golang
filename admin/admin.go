@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/duosecurity/duo_api_golang"
+	"github.com/addigy/duo_api_golang"
 )
 
 // Client provides access to Duo's admin API.
