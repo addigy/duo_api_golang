@@ -72,8 +72,8 @@ type DuoApi struct {
 	skey       string
 	host       string
 	userAgent  string
-	apiClient  httpClient
-	authClient httpClient
+	ApiClient  httpClient
+	AuthClient httpClient
 	sleepSvc   sleepService
 }
 
@@ -154,11 +154,11 @@ func NewDuoApi(ikey string,
 		skey:      skey,
 		host:      host,
 		userAgent: userAgent,
-		apiClient: &http.Client{
+		ApiClient: &http.Client{
 			Timeout:   opts.timeout,
 			Transport: tr,
 		},
-		authClient: &http.Client{
+		AuthClient: &http.Client{
 			Transport: tr,
 		},
 		sleepSvc: timeSleepService{},
@@ -267,9 +267,9 @@ func (duoapi *DuoApi) makeRetryableHttpCall(
 
 	opts := duoapi.buildOptions(options...)
 
-	client := duoapi.authClient
+	client := duoapi.AuthClient
 	if opts.timeout {
-		client = duoapi.apiClient
+		client = duoapi.ApiClient
 	}
 
 	backoffMs := initialBackoffMS

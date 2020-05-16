@@ -169,8 +169,8 @@ func TestDupApiCallHttpErr(t *testing.T) {
 		skey:       "skey-bar",
 		host:       "host.baz",
 		userAgent:  "ua-qux",
-		apiClient:  httpClient,
-		authClient: httpClient,
+		ApiClient:  httpClient,
+		AuthClient: httpClient,
 		sleepSvc:   sleepSvc,
 	}
 	resp, body, err := duo.Call("GET", "/v9/hello/world", url.Values{})
@@ -197,8 +197,8 @@ func getMockClients(httpResponses []http.Response) (*DuoApi, *mockHttpClient, *m
 		skey:       "skey-bar",
 		host:       "host.baz",
 		userAgent:  "ua-qux",
-		apiClient:  httpClient,
-		authClient: httpClient,
+		ApiClient:  httpClient,
+		AuthClient: httpClient,
 		sleepSvc:   sleepSvc,
 	}, httpClient, sleepSvc
 }
